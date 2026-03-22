@@ -11,6 +11,13 @@ UpdateInfoBoxHomeDistance(InfoBoxData &data) noexcept;
 void
 UpdateInfoBoxHomeAltitudeDiff(InfoBoxData &data) noexcept;
 
+class InfoBoxContentHome : public InfoBoxContent
+{
+public:
+  void Update(InfoBoxData &data) noexcept override;
+  bool HandleClick() noexcept override;
+};
+
 void
 UpdateInfoBoxTakeoffDistance(InfoBoxData &data) noexcept;
 
