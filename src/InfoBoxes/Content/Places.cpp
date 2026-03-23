@@ -123,21 +123,7 @@ InfoBoxContentHome::Update(InfoBoxData &data) noexcept
 
   data.SetValueFromArrival(result.
                            SelectAltitudeDifference(settings.task.glide));
-
-  // Comment: required glide ratio
-  const double gradient =
-    AngleToGradient(result.DestinationAngleGround());
-
-  if (gradient <= 0) {
-    data.SetComment("+++");
-  } else if (GradientValid(gradient)) {
-    char gr_buf[8];
-    FormatGlideRatio(gr_buf, sizeof(gr_buf), gradient);
-    StringFormat(data.comment.buffer(), data.comment.capacity(),
-                 "%s gr", gr_buf);
-  } else {
-    data.SetCommentInvalid();
-  }
+  data.SetCommentFromDistance(common_stats.vector_home.distance);
 }
 
 bool
