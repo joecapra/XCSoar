@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "InfoBoxes/Content/Base.hpp"
+
 struct InfoBoxData;
 
 void
